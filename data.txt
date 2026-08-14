@@ -1,0 +1,114 @@
+{
+  "version": 2,
+  "updatedAt": "2026-08-14T10:00:00.000Z",
+  "app": "今天吃什么",
+  "tips": "此文件为伪后端数据库，与 index.html 同级。页面加载时通过 fetch 读取；如需同步新数据，导出覆盖本文件并推送即可。",
+  "dishes": [
+    {
+      "id": "seed01",
+      "name": "麻辣香锅",
+      "store": "张亮麻辣烫（步行街店）",
+      "category": "正餐",
+      "price": 38,
+      "note": "中辣，加宽粉和午餐肉",
+      "pickCount": 2,
+      "lastPicked": null,
+      "createdAt": "2026-08-01T08:00:00.000Z"
+    },
+    {
+      "id": "seed02",
+      "name": "兰州拉面",
+      "store": "中国兰州拉面（东门）",
+      "category": "快餐",
+      "price": 15,
+      "note": "毛细，加蛋加肉，多香菜",
+      "pickCount": 3,
+      "lastPicked": null,
+      "createdAt": "2026-08-01T08:00:00.000Z"
+    },
+    {
+      "id": "seed03",
+      "name": "沙县小吃-蒸饺",
+      "store": "沙县小吃（小区对面）",
+      "category": "小吃",
+      "price": 10,
+      "note": "配花生酱，再来一碗拌面",
+      "pickCount": 1,
+      "lastPicked": null,
+      "createdAt": "2026-08-01T08:00:00.000Z"
+    },
+    {
+      "id": "seed04",
+      "name": "黄焖鸡米饭",
+      "store": "杨铭宇黄焖鸡（外卖）",
+      "category": "快餐",
+      "price": 22,
+      "note": "微辣，多加一份香菇",
+      "pickCount": 0,
+      "lastPicked": null,
+      "createdAt": "2026-08-01T08:00:00.000Z"
+    },
+    {
+      "id": "seed05",
+      "name": "火锅",
+      "store": "海底捞（万达店）",
+      "category": "正餐",
+      "price": 120,
+      "note": "番茄锅底，必须要有毛肚和虾滑",
+      "pickCount": 0,
+      "lastPicked": null,
+      "createdAt": "2026-08-01T08:00:00.000Z"
+    },
+    {
+      "id": "seed06",
+      "name": "柠檬茶",
+      "store": "LINLEE 林里（外卖）",
+      "category": "饮品",
+      "price": 16,
+      "note": "少冰七分糖，配鸭屎香",
+      "pickCount": 4,
+      "lastPicked": null,
+      "createdAt": "2026-08-01T08:00:00.000Z"
+    },
+    {
+      "id": "seed07",
+      "name": "烧烤",
+      "store": "木屋烧烤（夜宵档）",
+      "category": "夜宵",
+      "price": 85,
+      "note": "羊肉串20串，烤茄子，配冰啤酒",
+      "pickCount": 1,
+      "lastPicked": null,
+      "createdAt": "2026-08-01T08:00:00.000Z"
+    },
+    {
+      "id": "seed08",
+      "name": "寿司拼盘",
+      "store": "元气寿司（商场B1）",
+      "category": "正餐",
+      "price": 68,
+      "note": "三文鱼和鳗鱼是灵魂",
+      "pickCount": 0,
+      "lastPicked": null,
+      "createdAt": "2026-08-01T08:00:00.000Z"
+    }
+  ],
+  "history": [
+    {
+      "id": "hist01",
+      "date": "2026-08-13T12:10:00.000Z",
+      "dishId": "seed06",
+      "name": "柠檬茶",
+      "store": "LINLEE 林里（外卖）",
+      "category": "饮品"
+    },
+    {
+      "id": "hist02",
+      "date": "2026-08-12T18:40:00.000Z",
+      "dishId": "seed02",
+      "name": "兰州拉面",
+      "store": "中国兰州拉面（东门）",
+      "category": "快餐"
+    }
+  ]
+}
