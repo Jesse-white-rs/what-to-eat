@@ -50,6 +50,26 @@ body {
   z-index: 1;
 }
 
+/* ---------- Offline banner ---------- */
+.offline-banner {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background: linear-gradient(135deg, #fff7e6, #ffe8cc);
+  border-bottom: 1px solid #ffd591;
+  color: #9a5b00;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.offline-icon { font-size: 16px; }
+
 /* ---------- Header ---------- */
 .site-header {
   padding: 28px 0 8px;
@@ -578,6 +598,8 @@ body {
 }
 
 .sync-item-label { font-size: 14px; font-weight: 600; }
+
+.sync-item-status { font-size: 14px; }
 
 /* ---------- History ---------- */
 .history-list { list-style: none; }

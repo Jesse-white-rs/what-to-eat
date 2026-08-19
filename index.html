@@ -28,6 +28,12 @@
     </div>
   </header>
 
+  <!-- 离线模式横幅 -->
+  <div class="offline-banner hidden" id="offlineBanner">
+    <span class="offline-icon">⚠️</span>
+    <span id="offlineText">云数据库不可用，当前为本地离线模式</span>
+  </div>
+
   <main class="container">
     <!-- 随机抽取卡片 -->
     <section class="pick-card card" id="pickCard">
@@ -83,12 +89,13 @@
       </div>
       <div class="modal-body">
         <div class="info-box">
-          <h4>伪前后端架构说明</h4>
-          <p>本站为纯静态托管（GitHub Pages），无法直接在服务器写文件。因此采用<b>伪前后端</b>模式：</p>
+          <h4>☁️ Supabase 云数据库架构</h4>
+          <p>数据已升级存储到 <b>Supabase（PostgreSQL 云端数据库）</b>，所有设备实时同步：</p>
           <ul>
-            <li>📄 <code>data.txt</code>（与页面同级的 JSON 文件）充当<b>服务端数据库</b>，页面加载时通过 <code>fetch</code> 读取；</li>
-            <li>💻 你对菜谱的增删改会先写入<b>本地存储</b>（模拟写库），并实时生效；</li>
-            <li>☁️ 点击"导出 data.txt"下载最新数据，再上传替换仓库里的 <code>data.txt</code>，即可完成"云同步"，所有访客都能看到新数据。</li>
+            <li>🖥️ 菜谱与选择历史都存放在云端的 <code>dishes</code> / <code>pick_history</code> 表中；</li>
+            <li>🔌 页面通过 PostgREST API 直连（仅使用公开的 publishable 密钥）；</li>
+            <li>📡 若云数据库不可用，自动进入<b>本地离线模式</b>：更改暂存浏览器，云恢复后自动同步；</li>
+            <li>💾 导出/导入 <code>data.txt</code> 仅作为<b>备份与恢复</b>工具。</li>
           </ul>
         </div>
         <div class="stat-grid">
@@ -97,12 +104,24 @@
           <div class="stat"><div class="stat-num" id="statHistory">0</div><div class="stat-label">历史记录</div></div>
         </div>
         <div class="sync-row">
-          <div class="sync-item">
-            <span class="sync-item-label">📤 导出数据</span>
-            <button class="btn btn-primary" id="btnExport" type="button">下载 data.txt</button>
+          <div class="sync-item sync-item-status">
+            <span class="sync-item-label">🌐 云端状态</span>
+            <span id="cloudStateText">检测中…</span>
           </div>
           <div class="sync-item">
-            <span class="sync-item-label">📥 导入数据</span>
+            <span class="sync-item-label">⏳ 待同步变更</span>
+            <span id="queueCount">0</span>
+          </div>
+          <div class="sync-item">
+            <span class="sync-item-label">🔁 手动重连</span>
+            <button class="btn btn-primary" id="btnRetryConnect" type="button">重新连接云端</button>
+          </div>
+          <div class="sync-item">
+            <span class="sync-item-label">📤 导出备份</span>
+            <button class="btn btn-ghost" id="btnExport" type="button">下载 data.txt</button>
+          </div>
+          <div class="sync-item">
+            <span class="sync-item-label">📥 导入备份</span>
             <label class="btn btn-ghost" for="fileImport">选择 data.txt</label>
             <input type="file" id="fileImport" accept=".txt,.json,text/plain" hidden>
           </div>
@@ -174,7 +193,7 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p>今天吃什么 · 纯前端静态站点（伪前后端架构）</p>
+      <p>今天吃什么 · GitHub Pages 静态站点 + Supabase 云数据库</p>
       <p class="footer-sub">
         <button class="link-btn" id="btnOpenData" type="button">💾 数据同步</button>
         <span>·</span>
